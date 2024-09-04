@@ -1,0 +1,7 @@
+.MMM-Cricket-Scores .pager {
+    text-align: center;
+}
+
+.MMM-Cricket-Scores .pager>span {
+    margin-right: 10px;
+}
