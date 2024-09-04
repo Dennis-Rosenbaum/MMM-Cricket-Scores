@@ -1,7 +1,7 @@
 # MMM-Cricket-Scores
 Shows the cricket scores on a Magic Mirror
 
-![Example of MMM-Cricket-Scores](./example_1.png)
+![Example of MMM-Cricket-Scores](./Example_1.png)
 
 ## Installation
 
