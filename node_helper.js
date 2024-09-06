@@ -1,15 +1,13 @@
-const node_helper = require("node_helper");
-const Log = require("logger");
-const { convert } = require("html-to-text");
+const NodeHelper = require("node_helper")
+const Log = require("logger")
 
-module.exports = node_helper.create({
+module.exports = NodeHelper.create({
 
-    async socketNotificationReceived(notification, payload) {
-        const self = this;
+    async socketNotificationReceived (notification, payload) {
+        const self = this
 
         if (notification === "RETRIEVE_RESULTS") {
-
-            let url = `https://hs-consumer-api.espncricinfo.com/v1/pages/matches/current?lang=en&latest=true`
+            const url = "https://hs-consumer-api.espncricinfo.com/v1/pages/matches/current?lang=en&latest=true"
 
             try {
                 const response = await fetch(url)
@@ -20,30 +18,30 @@ module.exports = node_helper.create({
 
                 self.sendSocketNotification("RESULTS_RETRIEVED", results)
             } catch (error) {
-                console.log("Error", error)
+                Log.log("Error", error)
                 self.sendSocketNotification("RESULTS_RETRIEVED_FAILED", error)
             }
         }
     },
-    filterResult(results, payload) {
-        let numberOfDays = payload.numberOfDays
-        let endRange = new Date()
+    filterResult (results, payload) {
+        const numberOfDays = payload.numberOfDays
+        const endRange = new Date(Date.now())
         // startRange is endRange minus the numberOfDays
-        let startRange = new Date(endRange.getTime() - (numberOfDays * 24 * 60 * 60 * 1000))
+        const startRange = new Date(endRange.getTime() - (numberOfDays * 24 * 60 * 60 * 1000))
 
-        //filter the results where the startdate and enddate are somewhere between startRange and endRange
+        // filter the results where the startdate and enddate are somewhere between startRange and endRange
         let filteredResults = results.filter(result => {
-            let startDate = new Date(result.startDate)
-            let endDate = new Date(result.endDate)
+            const startDate = new Date(result.startDate)
+            const endDate = new Date(result.endDate)
             return (startDate >= startRange && startDate <= endRange) || (endDate >= startRange && endDate <= endRange)
         })
 
-        //status must not be null
+        // status must not be null
         filteredResults = filteredResults.filter(result => result.stage === "FINISHED")
 
         return filteredResults
     },
-    cleanJsonResults(json) {
+    cleanJsonResults (json) {
         // json looks like this, see Documentation/Example_match_result.json for full json
         //
         // {
@@ -74,7 +72,6 @@ module.exports = node_helper.create({
         const results = []
 
         json.matches.forEach(match => {
-
             const teams = []
             match.teams.forEach(team => {
                 teams.push({
@@ -99,4 +96,4 @@ module.exports = node_helper.create({
 
         return results
     }
-});
+})

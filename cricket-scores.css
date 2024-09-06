@@ -1,96 +1,96 @@
 .MMM-Cricket-Scores .pager {
-    text-align: center;
+  text-align: center;
 }
 
-.MMM-Cricket-Scores .pager>span {
-    text-align: center;
+.MMM-Cricket-Scores .pager > span {
+  text-align: center;
 }
 
 .MMM-Cricket-Scores .cricketContainer {
-    width: 400px;
-    align-items: center;
-    text-align: left;
+  width: 400px;
+  align-items: center;
+  text-align: left;
 }
 
 .MMM-Cricket-Scores .resultSection {
-    text-align: center;
-    font-size: 16px;
-    margin-bottom: -40px;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: -40px;
 }
 
 .MMM-Cricket-Scores .result {
-    text-align: center;
+  text-align: center;
 }
 
 .MMM-Cricket-Scores .viewresult {
-    font-size: 17px;
-    font-weight: lighter;
+  font-size: 17px;
+  font-weight: lighter;
 }
 
 .MMM-Cricket-Scores .teamIcon {
-    text-align: center;
-    width: 80px;
-    height: 80px;
+  text-align: center;
+  width: 80px;
+  height: 80px;
 }
 
 .MMM-Cricket-Scores .teamname {
-    text-align: center;
+  text-align: center;
 }
 
 .MMM-Cricket-Scores .score {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .MMM-Cricket-Scores .match-date p {
-    font-size: 14px;
-    color: #667;
+  font-size: 14px;
+  color: #667;
 }
 
 .MMM-Cricket-Scores .status {
-    font-size: 17px;
-    text-wrap: wrap;
-    width: 100px;
-    text-align: left;
-    font-weight: bold;
+  font-size: 17px;
+  text-wrap: wrap;
+  width: 100px;
+  text-align: left;
+  font-weight: bold;
 }
 
 .MMM-Cricket-Scores .vs {
-    font-size: 16px;
-    color: #666;
-    font-weight: bold;
-    position: relative;
-    top: 100px;
+  font-size: 16px;
+  color: #666;
+  font-weight: bold;
+  position: relative;
+  top: 100px;
 }
 
 .MMM-Cricket-Scores .teams {
-    display: flex;
-    margin: 20px 0;
+  display: flex;
+  margin: 20px 0;
 }
 
 .MMM-Cricket-Scores .team {
-    flex: 1;
-    padding-left: 50px
+  flex: 1;
+  padding-left: 50px;
 }
 
 .MMM-Cricket-Scores .team-logo {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
 }
 
 .MMM-Cricket-Scores .team-name {
-    font-weight: bold;
-    font-size: 18px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .MMM-Cricket-Scores .scoreInfo {
-    font-size: 16px;
-    color: gray;
-    text-align: center;
+  font-size: 16px;
+  color: gray;
+  text-align: center;
 }
 
 .MMM-Cricket-Scores .vs p {
-    font-weight: bold;
-    font-size: 18px;
-    color: #666;
+  font-weight: bold;
+  font-size: 18px;
+  color: #666;
 }

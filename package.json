@@ -1,0 +1,23 @@
+{
+  "name": "mmm-cricket-scores",
+  "version": "1.0.0",
+  "description": "A module for MagicMirror² to display cricket scores.",
+  "main": "MMM-Cricket-Scores.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dennis-Rosenbaum/MMM-Cricket-Scores.git"
+  },
+  "keywords": [
+    "cricket",
+    "sports"
+  ],
+  "author": "Dennis Rosenbaum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dennis-Rosenbaum/MMM-Cricket-Scores/issues"
+  },
+  "homepage": "https://github.com/Dennis-Rosenbaum/MMM-Cricket-Scores#readme"
+}
