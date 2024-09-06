@@ -1,8 +1,8 @@
 # MMM-Cricket-Scores
-Shows the cricket scores on a Magic Mirror
+
+Shows the cricket scores on a MagicMirror².
 
 ![Screenshot 2024-09-05 at 12 40 15](https://github.com/user-attachments/assets/1e551308-0aea-4abd-8d59-7b4e2b42daca)
-
 
 ## Installation
 
