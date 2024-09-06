@@ -12,7 +12,7 @@ In your terminal, go to your MagicMirror's Module folder and clone MMM-Cricket-S
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/Dennis-Rosenbaum/MMM-Cricket-Scores.git
+git clone https://github.com/Dennis-Rosenbaum/MMM-Cricket-Scores
 ```
 
 ### Update
