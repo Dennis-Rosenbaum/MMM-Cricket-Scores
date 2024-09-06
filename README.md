@@ -1,6 +1,6 @@
 # MMM-Cricket-Scores
 
-Shows the cricket scores on a MagicMirror².
+Shows the cricket scores on a [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror).
 
 ![Screenshot 2024-09-05 at 12 40 15](Example_1.png)
 
@@ -87,7 +87,3 @@ The dom will look like this:
   </div>
 </div>
 ```
-
-
-
-[mm]: https://github.com/MichMich/MagicMirror
