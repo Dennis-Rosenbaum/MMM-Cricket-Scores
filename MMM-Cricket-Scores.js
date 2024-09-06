@@ -63,7 +63,7 @@ Module.register('MMM-Cricket-Scores', {
     return wrapper
   },
 
-  getDomResult() {
+getDomResult() {
     const self = this
 
     const wrapper = document.createElement('div')
@@ -75,7 +75,7 @@ Module.register('MMM-Cricket-Scores', {
     pagerElement.className = "pager"
 
     const previousButton = document.createElement("span")
-    previousButton.innerHTML = "<"
+    previousButton.innerHTML = "< "
     previousButton.onclick = function () {
       self.resultsIndex--
       self.processResult()
@@ -84,10 +84,11 @@ Module.register('MMM-Cricket-Scores', {
 
     const pagerText = document.createElement("span")
     pagerText.innerHTML = `view result ${this.resultsIndex + 1}/${this.results.length}`
+    pagerText.className = 'viewresult'
     pagerElement.appendChild(pagerText)
 
     const nextButton = document.createElement("span")
-    nextButton.innerHTML = ">"
+    nextButton.innerHTML = " >"
     nextButton.onclick = function () {
       self.resultsIndex++
       self.processResult()
@@ -101,42 +102,55 @@ Module.register('MMM-Cricket-Scores', {
   },
 
   getDomMatchResult(result) {
-    const html = `<div class="result">
-  <div>
-    RESULT · 
-    <span class="title">${result.title}</span> · 
-    <span class="ground">${result.ground}</span>
-  </div>
-  <div class="teams">
-  ${result.teams?.map(team => this.getDomTeamResult(team)).join('')}
-  </div>
-  <div>
-    <span class="status">${result.status}</span>
-  </div>
-</div>`
+    const html = `<div class="cricketContainer">
+      <div class="result">
+        <div class="resultSection">
+          RESULT · 
+          <span class="title">${result.title}</span> · 
+          <span class="ground">${result.ground}</span>
+        </div>
+        <div class="vs">
+          <p>VS</p>
+        /div>  
+        <div class="teams">
+          ${result.teams?.map(team => this.getDomTeamResult(team)).join('')}
+        </div>
+        <div>
+          <span class="status">${result.status}</span>
+        </div>
+      </div>
+    </div>`
 
     return html
   },
   getDomTeamResult(team) {
     const html = `<div class="team">
-    <div style="float: left">
-      <img src="${team.imageUrl}" width="20" height="20"> 
-      <span class="teamname">${team.teamName}</span>
-    </div>
-    <div style="float: right">
-        <span class="scoreInfo">${team.scoreInfo == null ? '' : `(${team.scoreInfo})`}</span> 
-        <span class="score">${team.score}</span>
-    </div>
-    <div style="clear:both"></div>
-  </div>`
+      <div style="float: left">
+        <img class="teamIcon" src="${team.imageUrl}"> 
+        <div>
+          <span class="teamname">${team.teamName}</span>
+        </div>
+        <div>
+          <span class="scoreInfo">${team.score}</span>
+          <div>
+            <span class="score">${team.scoreInfo == null ? '.' : `(${team.scoreInfo})`}</span> 
+          </div>
+        </div> 
+      </div>
+      <div>
+      </div>
+    </div>`
+    
     return html
   },
+  
   startRetrievingResults() {
     Log.log(`[${this.name}] get results`, this)
     this.sendSocketNotification('RETRIEVE_RESULTS', {
       numberOfDays: this.config.numberOfDays
     })
   },
+  
   setError(error) {
     this.error = error
     this.updateDom()
@@ -152,6 +166,7 @@ Module.register('MMM-Cricket-Scores', {
 
     this.processResult()
   },
+  
   processResult() {
     //check if the resultsIndex is out of bounds and fix it by looping through the items
     if (this.resultsIndex < 0) {
