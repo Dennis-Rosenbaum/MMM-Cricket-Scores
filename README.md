@@ -20,7 +20,6 @@ git clone https://github.com/Dennis-Rosenbaum/MMM-Cricket-Scores
 ```bash
 cd ~/MagicMirror/modules/MMM-Cricket-Scores
 git pull
-npm update
 ```
 
 ## Using the module
@@ -36,7 +35,7 @@ To use this module, add it to the modules array in the `config/config.js` file:
           numberOfDays: 3,
           resultSwitchInterval: 15
         }
-    }
+    },
 ```
 
 ## Configuration options
