@@ -3,5 +3,89 @@
 }
 
 .MMM-Cricket-Scores .pager>span {
-    margin-right: 10px;
+    text-align: center;
 }
+
+.cricketContainer {
+    width: 400px;
+    align-items: center;
+    text-align: left;
+}
+.resultSection{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: -40px;
+}
+.result{
+    text-align: center;
+}
+.viewresult
+{
+    font-size: 17px;
+    font-weight: lighter            ;
+}
+.teamIcon{
+    text-align: center;
+    width: 80px;
+    height: 80px;
+}
+.teamname{
+    text-align: center;
+}
+.scoreInfo{
+    font-weight: bold;
+}
+
+.match-date p {
+    font-size: 14px;
+    color: #667;
+}
+.status{
+    font-size:17px;
+    text-wrap: wrap;
+    width: 100px;
+    text-align: left;
+    font-weight: bold;
+}
+.vs {
+    font-size: 16px;
+    color: #666;
+    font-weight: bold;
+    position: relative;
+    top:100px;
+}
+
+
+.teams {
+    display: flex;
+    margin: 20px 0;
+}
+
+.team {
+    flex: 1;
+    padding-left:50px
+}
+
+.team-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.team-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.score {
+    font-size: 16px;
+    color:gray;
+    text-align: center;
+}   
+
+.vs p {
+    font-weight: bold;
+    font-size: 18px;
+    color: #666;
+}
+
