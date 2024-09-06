@@ -31,6 +31,7 @@ modules: [
     {
         module: 'MMM-Cricket-Scores',
         position: 'lower_third',
+        header: "Cricket scores",
         config: {
         }
     }
@@ -48,34 +49,40 @@ Option|Possible values|Default|Description
 The dom will look like this:
 
 ```html
-<div>
+<div class="cricketContainer">
   <div class="result">
-    <div>
+    <div class="resultSection">
         RESULT · 
         <span class="title">[title]</span> · 
         <span class="ground">[ground]</span>
     </div>
+    <div class="vs">
+      <p>VS</p>
+    </div>  
     <div class="teams">
-        <div class="team">
+      <div class="team">
         <div style="float: left">
-        <img src="[imageUrl]" width="20" height="20"> 
-        <span class="teamname">[teamName]</span>
+          <img class="teamIcon" src="${team.imageUrl}"> 
+            <div>
+              <span class="teamname">[teamName]</span>
+            </div>
+            <div>
+              <span class="score">[score]</span>
+              <div>
+                <span class="scoreInfo">[scoreInfo]</span> 
+              </div>
+            </div> 
+          </div>
         </div>
-        <div style="float: right">
-            <span class="scoreInfo">[scoreInfo]</span> 
-            <span class="score">[score]</span>
-        </div>
-        <div style="clear:both"></div>
-    </div>
     </div>
     <div>
         <span class="status">[status]</span>
     </div>
   </div>
   <div class="pager">
-    <span>&lt;</span>
+    <span>&lt; </span>
     <span>view result [current]/[total]</span>
-    <span>&gt;</span>
+    <span>&gt; </span>
   </div>
 </div>
 ```

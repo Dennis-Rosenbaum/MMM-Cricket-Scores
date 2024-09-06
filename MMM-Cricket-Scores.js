@@ -63,7 +63,7 @@ Module.register('MMM-Cricket-Scores', {
     return wrapper
   },
 
-getDomResult() {
+  getDomResult() {
     const self = this
 
     const wrapper = document.createElement('div')
@@ -111,7 +111,7 @@ getDomResult() {
         </div>
         <div class="vs">
           <p>VS</p>
-        /div>  
+        </div>  
         <div class="teams">
           ${result.teams?.map(team => this.getDomTeamResult(team)).join('')}
         </div>
@@ -131,26 +131,24 @@ getDomResult() {
           <span class="teamname">${team.teamName}</span>
         </div>
         <div>
-          <span class="scoreInfo">${team.score}</span>
+          <span class="score">${team.score}</span>
           <div>
-            <span class="score">${team.scoreInfo == null ? '.' : `(${team.scoreInfo})`}</span> 
+            <span class="scoreInfo">${team.scoreInfo == null ? '.' : `(${team.scoreInfo})`}</span> 
           </div>
         </div> 
       </div>
-      <div>
-      </div>
     </div>`
-    
+
     return html
   },
-  
+
   startRetrievingResults() {
     Log.log(`[${this.name}] get results`, this)
     this.sendSocketNotification('RETRIEVE_RESULTS', {
       numberOfDays: this.config.numberOfDays
     })
   },
-  
+
   setError(error) {
     this.error = error
     this.updateDom()
@@ -166,7 +164,7 @@ getDomResult() {
 
     this.processResult()
   },
-  
+
   processResult() {
     //check if the resultsIndex is out of bounds and fix it by looping through the items
     if (this.resultsIndex < 0) {

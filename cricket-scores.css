@@ -12,33 +12,32 @@
     text-align: left;
 }
 
-.MMM-Cricket-Scores .resultSection{
+.MMM-Cricket-Scores .resultSection {
     text-align: center;
     font-size: 16px;
     margin-bottom: -40px;
 }
 
-.MMM-Cricket-Scores .result{
+.MMM-Cricket-Scores .result {
     text-align: center;
 }
 
-.MMM-Cricket-Scores .viewresult
-{
+.MMM-Cricket-Scores .viewresult {
     font-size: 17px;
-    font-weight: lighter            ;
+    font-weight: lighter;
 }
 
-.MMM-Cricket-Scores .teamIcon{
+.MMM-Cricket-Scores .teamIcon {
     text-align: center;
     width: 80px;
     height: 80px;
 }
 
-.MMM-Cricket-Scores .teamname{
+.MMM-Cricket-Scores .teamname {
     text-align: center;
 }
 
-.MMM-Cricket-Scores .scoreInfo{
+.MMM-Cricket-Scores .score {
     font-weight: bold;
 }
 
@@ -47,7 +46,7 @@
     color: #667;
 }
 
-.MMM-Cricket-Scores .status{
+.MMM-Cricket-Scores .status {
     font-size: 17px;
     text-wrap: wrap;
     width: 100px;
@@ -60,7 +59,7 @@
     color: #666;
     font-weight: bold;
     position: relative;
-    top:100px;
+    top: 100px;
 }
 
 .MMM-Cricket-Scores .teams {
@@ -84,15 +83,14 @@
     font-size: 18px;
 }
 
-.score {
+.MMM-Cricket-Scores .scoreInfo {
     font-size: 16px;
-    color:gray;
+    color: gray;
     text-align: center;
-}   
+}
 
-.vs p {
+.MMM-Cricket-Scores .vs p {
     font-weight: bold;
     font-size: 18px;
     color: #666;
 }
-
