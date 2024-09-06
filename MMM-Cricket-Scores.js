@@ -1,4 +1,4 @@
-Module.register('MMM-Cricket-Scores', {
+Module.register("MMM-Cricket-Scores", {
 
   defaults: {
     numberOfDays: 2, // Range between today and today - numberOfDays to show the scores for
@@ -8,14 +8,14 @@ Module.register('MMM-Cricket-Scores', {
   /**
    * Apply the default quiz styles.
    */
-  getStyles() {
-    return ['cricket-scores.css']
+  getStyles () {
+    return ["cricket-scores.css"]
   },
 
   /**
    * Pseudo-constructor for our module. Sets the default current page to 0.
    */
-  start() {
+  start () {
     this.results = undefined
     this.resultsIndex = 0
     this.startRetrievingResults()
@@ -26,8 +26,8 @@ Module.register('MMM-Cricket-Scores', {
     }, this.config.resultSwitchInterval * 1000)
   },
 
-  socketNotificationReceived: function (notification, payload) {
-    console.log("Socket notification received", notification)
+  socketNotificationReceived (notification, payload) {
+    Log.log("Socket notification received", notification)
     if (notification === 'RESULTS_RETRIEVED') {
       Log.log(`[${this.name}] received results from json`, payload)
       this.clearError()
@@ -38,7 +38,7 @@ Module.register('MMM-Cricket-Scores', {
     }
   },
 
-  getDom() {
+  getDom () {
     if (this.error)
       return this.getDomError(this.error)
 
@@ -48,25 +48,25 @@ Module.register('MMM-Cricket-Scores', {
     return this.getDomLoading()
   },
 
-  getDomError(error) {
-    console.log("Render dom error")
-    const wrapper = document.createElement('div')
-    wrapper.className = 'error-container'
+  getDomError (error) {
+    Log.log("Render dom error")
+    const wrapper = document.createElement("div")
+    wrapper.className = "error-container"
     wrapper.innerHTML = error
     return wrapper
   },
 
-  getDomLoading() {
-    console.log("Render loading the results")
-    const wrapper = document.createElement('div')
+  getDomLoading () {
+    Log.log("Render loading the results")
+    const wrapper = document.createElement("div")
     wrapper.innerHTML = "Loading new results...."
     return wrapper
   },
 
-  getDomResult() {
+  getDomResult () {
     const self = this
 
-    const wrapper = document.createElement('div')
+    const wrapper = document.createElement("div")
 
     const resultElement = document.createElement("div")
     resultElement.innerHTML = this.getDomMatchResult(this.currentResult)
@@ -84,7 +84,7 @@ Module.register('MMM-Cricket-Scores', {
 
     const pagerText = document.createElement("span")
     pagerText.innerHTML = `view result ${this.resultsIndex + 1}/${this.results.length}`
-    pagerText.className = 'viewresult'
+    pagerText.className = "viewresult"
     pagerElement.appendChild(pagerText)
 
     const nextButton = document.createElement("span")
@@ -101,7 +101,7 @@ Module.register('MMM-Cricket-Scores', {
     return wrapper
   },
 
-  getDomMatchResult(result) {
+  getDomMatchResult (result) {
     const html = `<div class="cricketContainer">
       <div class="result">
         <div class="resultSection">
@@ -113,7 +113,7 @@ Module.register('MMM-Cricket-Scores', {
           <p>VS</p>
         </div>  
         <div class="teams">
-          ${result.teams?.map(team => this.getDomTeamResult(team)).join('')}
+          ${result.teams?.map(team => this.getDomTeamResult(team)).join("")}
         </div>
         <div>
           <span class="status">${result.status}</span>
@@ -123,7 +123,7 @@ Module.register('MMM-Cricket-Scores', {
 
     return html
   },
-  getDomTeamResult(team) {
+  getDomTeamResult (team) {
     const html = `<div class="team">
       <div style="float: left">
         <img class="teamIcon" src="${team.imageUrl}"> 
@@ -133,7 +133,7 @@ Module.register('MMM-Cricket-Scores', {
         <div>
           <span class="score">${team.score}</span>
           <div>
-            <span class="scoreInfo">${team.scoreInfo == null ? '.' : `(${team.scoreInfo})`}</span> 
+            <span class="scoreInfo">${team.scoreInfo == null ? "." : `(${team.scoreInfo})`}</span> 
           </div>
         </div> 
       </div>
@@ -142,31 +142,31 @@ Module.register('MMM-Cricket-Scores', {
     return html
   },
 
-  startRetrievingResults() {
+  startRetrievingResults () {
     Log.log(`[${this.name}] get results`, this)
-    this.sendSocketNotification('RETRIEVE_RESULTS', {
+    this.sendSocketNotification("RETRIEVE_RESULTS", {
       numberOfDays: this.config.numberOfDays
     })
   },
 
-  setError(error) {
+  setError (error) {
     this.error = error
     this.updateDom()
   },
 
-  clearError() {
+  clearError () {
     this.error = undefined
   },
 
-  processResults(processResults) {
+  processResults (processResults) {
     this.results = processResults
     this.resultsIndex = 0
 
     this.processResult()
   },
 
-  processResult() {
-    //check if the resultsIndex is out of bounds and fix it by looping through the items
+  processResult () {
+    // check if the resultsIndex is out of bounds and fix it by looping through the items
     if (this.resultsIndex < 0) {
       this.resultsIndex = this.results.length - 1
     } else if (this.resultsIndex >= this.results.length) {
@@ -181,4 +181,4 @@ Module.register('MMM-Cricket-Scores', {
     this.currentResult = this.results[this.resultsIndex]
     this.updateDom()
   }
-});
+})
