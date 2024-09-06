@@ -46,37 +46,38 @@ Option|Possible values|Default|Description
 `resultSwitchInterval`|[number]|10|Switch to the next result every so seconds
 
 ## DOM example
+
 The dom will look like this:
 
 ```html
 <div class="cricketContainer">
   <div class="result">
     <div class="resultSection">
-        RESULT · 
-        <span class="title">[title]</span> · 
-        <span class="ground">[ground]</span>
+      RESULT ·
+      <span class="title">[title]</span> ·
+      <span class="ground">[ground]</span>
     </div>
     <div class="vs">
       <p>VS</p>
-    </div>  
+    </div>
     <div class="teams">
       <div class="team">
         <div style="float: left">
-          <img class="teamIcon" src="${team.imageUrl}"> 
+          <img class="teamIcon" src="${team.imageUrl}">
+          <div>
+            <span class="teamname">[teamName]</span>
+          </div>
+          <div>
+            <span class="score">[score]</span>
             <div>
-              <span class="teamname">[teamName]</span>
+              <span class="scoreInfo">[scoreInfo]</span>
             </div>
-            <div>
-              <span class="score">[score]</span>
-              <div>
-                <span class="scoreInfo">[scoreInfo]</span> 
-              </div>
-            </div> 
           </div>
         </div>
+      </div>
     </div>
     <div>
-        <span class="status">[status]</span>
+      <span class="status">[status]</span>
     </div>
   </div>
   <div class="pager">
