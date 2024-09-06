@@ -1,6 +1,5 @@
 const node_helper = require("node_helper");
 const Log = require("logger");
-const { convert } = require("html-to-text");
 
 module.exports = node_helper.create({
 
