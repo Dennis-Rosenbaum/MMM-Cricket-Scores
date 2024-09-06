@@ -26,16 +26,17 @@ npm update
 ## Using the module
 
 To use this module, add it to the modules array in the `config/config.js` file:
+
 ```js
-modules: [
     {
         module: 'MMM-Cricket-Scores',
         position: 'lower_third',
         header: "Cricket scores",
         config: {
+          numberOfDays: 3,
+          resultSwitchInterval: 15
         }
     }
-]
 ```
 
 ## Configuration options
