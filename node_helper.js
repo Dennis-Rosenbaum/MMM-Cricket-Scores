@@ -20,7 +20,7 @@ module.exports = node_helper.create({
 
                 self.sendSocketNotification("RESULTS_RETRIEVED", results)
             } catch (error) {
-                console.log("Error", error)
+                Log.log("Error", error)
                 self.sendSocketNotification("RESULTS_RETRIEVED_FAILED", error)
             }
         }
